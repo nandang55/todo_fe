@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { authService } from '../services/api';
-import { LoginCredentials, RegisterCredentials, User, AuthResponse } from '../types';
+import { RegisterCredentials, User } from '../types';
 import axios from 'axios';
 
 export const useAuth = () => {

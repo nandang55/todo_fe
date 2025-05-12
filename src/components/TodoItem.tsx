@@ -30,6 +30,7 @@ export const TodoItem = ({ todo, onEdit }: TodoItemProps) => {
         duration: 2000,
       });
     } catch (error) {
+      console.log(error);
       toast({
         title: 'Gagal memperbarui status',
         status: 'error',

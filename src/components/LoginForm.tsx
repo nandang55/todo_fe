@@ -62,6 +62,7 @@ export const LoginForm = () => {
         isClosable: true,
       });
     } catch (err) {
+      console.log(err);
       toast({
         title: 'Login gagal',
         description: error || 'Terjadi kesalahan',

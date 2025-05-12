@@ -29,6 +29,7 @@ export const RegisterForm = () => {
         isClosable: true,
       });
     } catch (err) {
+      console.log(err);
       toast({
         title: 'Registrasi gagal',
         description: error || 'Terjadi kesalahan',

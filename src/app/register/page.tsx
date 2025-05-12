@@ -36,6 +36,7 @@ export default function RegisterPage() {
       });
       router.push('/');
     } catch (error) {
+      console.log(error);
       toast({
         title: 'Registrasi gagal',
         description: 'Email sudah terdaftar',

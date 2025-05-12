@@ -52,6 +52,7 @@ export const TodoForm = ({ todo, onClose }: TodoFormProps) => {
       queryClient.invalidateQueries({ queryKey: ['todos'] });
       onClose();
     } catch (error) {
+      console.log(error);
       toast({
         title: 'Terjadi kesalahan',
         status: 'error',

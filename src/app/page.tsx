@@ -35,6 +35,7 @@ export default function LoginPage() {
       });
       router.push('/todos');
     } catch (error) {
+      console.log(error);
       toast({
         title: 'Login gagal',
         description: 'Email atau password salah',
