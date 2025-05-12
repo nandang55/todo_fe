@@ -49,6 +49,7 @@ export const TodoItem = ({ todo, onEdit }: TodoItemProps) => {
         duration: 2000,
       });
     } catch (error) {
+      console.log("error", error);
       toast({
         title: 'Gagal menghapus todo',
         status: 'error',
