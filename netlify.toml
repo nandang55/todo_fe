@@ -1,6 +1,5 @@
 [build]
   command = "npm install --legacy-peer-deps && npm run build"
-  publish = ".next" # atau bisa DIHAPUS SAJA baris ini
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
