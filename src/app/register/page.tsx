@@ -15,29 +15,30 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 
-export default function LoginPage() {
+export default function RegisterPage() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth();
+  const { register } = useAuth();
   const router = useRouter();
   const toast = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await login(email, password);
+      await register({ name, email, password });
       toast({
-        title: 'Login berhasil',
+        title: 'Registrasi berhasil',
         status: 'success',
         duration: 2000,
       });
-      router.push('/todos');
+      router.push('/');
     } catch (error) {
       toast({
-        title: 'Login gagal',
-        description: 'Email atau password salah',
+        title: 'Registrasi gagal',
+        description: 'Email sudah terdaftar',
         status: 'error',
         duration: 2000,
       });
@@ -54,9 +55,17 @@ export default function LoginPage() {
         bg="white"
       >
         <VStack spacing={6}>
-          <Heading>Login</Heading>
+          <Heading>Daftar</Heading>
           <form onSubmit={handleSubmit} style={{ width: '100%' }}>
             <VStack spacing={4}>
+              <FormControl isRequired>
+                <FormLabel>Nama</FormLabel>
+                <Input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Masukkan nama"
+                />
+              </FormControl>
               <FormControl isRequired>
                 <FormLabel>Email</FormLabel>
                 <Input
@@ -76,18 +85,18 @@ export default function LoginPage() {
                 />
               </FormControl>
               <Button type="submit" colorScheme="blue" width="full">
-                Login
+                Daftar
               </Button>
             </VStack>
           </form>
           <Text>
-            Belum punya akun?{' '}
-            <Link color="blue.500" href="/register">
-              Daftar di sini
+            Sudah punya akun?{' '}
+            <Link color="blue.500" href="/">
+              Login di sini
             </Link>
           </Text>
         </VStack>
       </Box>
     </Container>
   );
-}
+} 
